@@ -20,7 +20,11 @@ void draw(){
 
 // When key is pressed, add new random fly
 void keyPressed(){
-  flueListe.add(new Flue());
+  if (key == 'e') {
+    flueListe.add(new Flue(1.8));
+  } else {
+    flueListe.add(new Flue());
+  }
 }
 
 
@@ -38,6 +42,7 @@ class Flue{
   float positionX,positionY;
   float distanceFlyttet;
   float vinkel = 0; 
+  float scale = 1;
   
   // Constructor for a ranom fly
   Flue(){
@@ -53,21 +58,31 @@ class Flue{
     vinkel    = random(0,2*PI);
   }
   
+  // Constructor for a fly with certain size
+  Flue(float size) {
+    positionX  = random(0,height);
+    positionY  = random(0,width);
+    vinkel     = random(0,2*PI);
+    scale = size;
+  }
+  
   // Move fly when called
   void flyt(){
     distanceFlyttet = distanceFlyttet + 0.5;
   }
 
-  // Draw the fly when called. 
+  // Draw the fly when called
   void tegnFlue(){
     pushMatrix();
       translate(positionX,positionY);
       rotate(vinkel);
+      scale(scale);
       translate(distanceFlyttet,0);
         ellipse(0,0,20,8);
         ellipse(0,0-8,15,10);
         ellipse(0,0+8,15,10);
         ellipse(0+6,0,8,8);
+        scale(1);
     popMatrix();
   } 
 }
