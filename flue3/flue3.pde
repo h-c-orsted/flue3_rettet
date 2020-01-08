@@ -43,6 +43,7 @@ class Flue{
   float distanceFlyttet;
   float vinkel = 0; 
   float scale = 1;
+  boolean direction = true;
   
   // Constructor for a ranom fly
   Flue(){
@@ -68,11 +69,32 @@ class Flue{
   
   // Move fly when called
   void flyt(){
-    distanceFlyttet = distanceFlyttet + 0.5;
+    if (direction) {
+      distanceFlyttet = distanceFlyttet + 0.5;  
+    } else {
+      distanceFlyttet = distanceFlyttet - 0.5;  
+    }
   }
 
   // Draw the fly when called
   void tegnFlue(){
+    // Code to determine whether the fly is on the edge of the screen
+    float currentX = cos(vinkel) * distanceFlyttet;
+    float currentY = sin(vinkel) * distanceFlyttet;
+    
+    if (positionX + currentX > 500 || 
+        positionX + currentX < 0 || 
+        positionY + currentY > 500 ||
+        positionY + currentY < 0) {
+        
+          positionX += currentX;
+          positionY += currentY;
+          distanceFlyttet = 0;
+          vinkel += PI;      
+    }
+      
+    
+    
     pushMatrix();
       translate(positionX,positionY);
       rotate(vinkel);
