@@ -1,0 +1,23 @@
+Opg 1)
+  Program 1 laver bare fluerne, men har ingen funktioner til at flytte dem med. Hele systemet med at sætte hvor musen er og dreje tilfældigt er på plads. 
+  
+  Program 2 får én flue til at bevæge sig (den nyeste flue). Desuden kalder den ikke clear() hvilket vil sige, at der er "spor" efter fluen. 
+  
+  Program 3 har lavet en arraylist, der muliggør at flytte alle fluer. Desuden kaldes clear() også. 
+  
+  
+Opg 2)
+  Der laves 4 objekter efter de 4 tryk. Det er fordi vi laver en ny flue ved hvert tryk. 
+  
+  
+Opg 3)
+  Der bevæges kun 1 flue (den senest oprettede). Det er fordi at funktionen til at bevæge fluen med kun har seneste flue som reference. 
+  
+  
+Opg 4)
+  I de to første programmer har det ingen praktisk funktion. Det er lidt ligegyldigt. Når man kommer til program 3, betyder det, at fluerne bevæger sig mærkeligt fordi den flytter i forhold til sig selv og ikke kan det fordi man har fjernet de to stumper kode. 
+  
+  
+Opg 5) 
+  ArrayList indeholder objekter som vi gør her. Desuden er det dynamisk mht. størrelse og er derfor ret praktisk til vores formål, hvor man bare kan lave fluer som man lyster. 
+  
